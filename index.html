@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/440c2abcaa.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>슬라임</title>
+    <style>
+        a{ color:black; text-decoration: none;}
+        a:link { color:black; text-decoration: none;}
+        a:visited { color:black; text-decoration: none;}
+        a:hover { color:black; text-decoration: none;}
+        .product_title{
+            
+        }
+        h3{
+            font-weight: bolder;
+            font-size:large;
+        }
+        .product_kind{
+            font-size: small;
+            color:rgb(116,116,116);
+        }
+        .product_price{
+            font-weight: bold;
+        }
+        .product_sale{
+            color:rgb(251,0,25)
+        }
+        .product_grade{
+            font-size: small;
+            font-weight: bold;
+        }
+        .fa-star{
+            color:rgb(251,0,25)
+        }
+        .badge-free{
+            background-color: rgb(237,237,237);
+            color:rgb(116,116,116);
+        }
+        .badge-sale{
+            background-color: rgb(255,119,119);
+            color:white;
+        }
+
+        .jb-wrap img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .jb-text {
+            padding: 5px 10px;
+            background-color: rgb(255,119,119);
+            text-align: center;
+            position: absolute;
+            top: 5%;
+            left: 17%;
+            transform: translate( -50%, -50% );
+        }
+       
+        .img-wrap img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .img-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            padding: 0;
+            display: none;
+        }
+        .footer{
+            font-size: small;
+           
+        }
+        .jbFixed{
+            position:fixed;
+            top:0;
+            width: 100%;
+            background-color: white;
+        }
+        .tab-detail-wrap{
+    
+            display: block;
+            z-index: 3;
+            
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.img-wrap > img').mouseover(function(){
+                $('this').prev().css('display','block');
+            })
+            $('.img-wrap > img').mouseout(function(){
+                $(this).prev().css('display','none');
+            })
+        })
+        $(function(){
+            $('.close').click(function(){
+                $('.ad').css('display','none');
+            })
+            
+        })
+        
+    </script>
+    <script>
+        $(document).ready(function () {
+            var jbOffset = $('.tab-detail-wrap').offset();
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > jbOffset.top) {
+                    $('.tab-detail-wrap').addClass('jbFixed');
+                }
+                else {
+                    $('.tab-detail-wrap').removeClass('jbFixed');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-end p-3 ad" style="background-color: rgb(47,47,47);">
+            <div class="col justify-content-center text-center">
+                <span class="text-white m-0 footer ">SNS대란 바로그 슬라임! 핸드메이드 슬라임 마켓 "슬라임 마켓"</span>
+            </div>        
+                <span><a class="close"><i class="fas fa-times" style="color: white;"></i></a></span>   
+        </div>
+        <div class="row justify-content-end">
+            <ul class="nav footer">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">로그인</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">회원가입</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">장바구니</a>
+                </li>
+              </ul>
+        </div>
+        <div class="tab-detail-wrap row justify-content-center border ">
+            <ul class="nav justify-content-center footer m-2">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">촉감류</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">폼/자바칩</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">크런치</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">빵시리즈</a>
+                </li>
+              </ul>
+        </div>
+        <div class="row">
+            <div id="carouselExampleIndicators" class="carousel slide container-fluid p-0" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://cdn.imweb.me/thumbnail/20181018/5bc80f6f8128f.jpg" class="d-block w-100" alt="..." style="height: 70vh;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://cdn.imweb.me/thumbnail/20180906/5b9109fe74823.jpg" class="d-block w-100" style="height: 70vh;" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://i.ytimg.com/vi/lLqbZP2W5Bo/maxresdefault.jpg" class="d-block w-100" style="height: 70vh;" alt="...">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-5 mb-3">
+                    <h3>오늘의 할인</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <div class="jb-wrap">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <span class="badge badge-primary jb-text">6일 남음</span>
+                            </div>
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">라이스볼</p>
+                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <div class="jb-wrap">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <span class="badge badge-primary jb-text">6일 남음</span>
+                            </div>
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">라이스볼</p>
+                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <div class="jb-wrap">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <span class="badge badge-primary jb-text">6일 남음</span>
+                            </div>
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">라이스볼</p>
+                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <div class="jb-wrap">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <span class="badge badge-primary jb-text">6일 남음</span>
+                            </div>
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">라이스볼</p>
+                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-5 mb-3">
+                    <h3>인기 키워드</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"> 
+                    <a href="#">
+                        <div class="card border-0 ">
+                            <div class=" card-body justify-content-center rounded-lg" style=" 
+                            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTj9maLWOrrETbLMnRYxOCAK7MhlJt_AB49bQ&usqp=CAU');
+                            background-size: cover!important; 
+                            background-repeat: no-repeat; 
+                            background-position: 50%; ">
+                            <h6 class="card-title m-0 pt-4 pb-4 text-white text-center font-weight-bold">빈백폼 시리즈</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col"> 
+                    <a href="#">
+                        <div class="card border-0 ">
+                            <div class=" card-body justify-content-center rounded-lg" style=" 
+                            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/82584938_166155198025424_6043938982680457148_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=108&amp;_nc_ohc=_QOQkKDqZQoAX8dKr0B&amp;oh=a9ed7ac26339b6943cfb1502aebd4f21&amp;oe=5EF43D0B');
+                            background-size: cover!important; 
+                            background-repeat: no-repeat; 
+                            background-position: 50%; ">
+                            <h6 class="card-title m-0 pt-4 pb-4 text-white text-center font-weight-bold">자바칩 시리즈</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col"> 
+                    <a href="#">
+                        <div class="card border-0 ">
+                            <div class=" card-body justify-content-center rounded-lg" style=" 
+                            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/66436305_448189012442644_3925882161158175863_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=104&amp;_nc_ohc=YaxuDDCD5RIAX_z2v7t&amp;oh=c2fe1eb3628805d80953e6e1eb2947ef&amp;oe=5EF3D0A0');
+                            background-size: cover!important; 
+                            background-repeat: no-repeat; 
+                            background-position: 50%; ">
+                            <h6 class="card-title m-0 pt-4 pb-4 text-white text-center font-weight-bold">곰 시리즈</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col"> 
+                    <a href="#">
+                        <div class="card border-0 ">
+                            <div class=" card-body justify-content-center rounded-lg" style=" 
+                            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/80336218_2748907358510567_2292974727733357519_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=HnwOvi7xnAMAX_xpNtj&amp;oh=074b3095211fbbf7b1eec9cfde4042fe&amp;oe=5EF3E406');
+                            background-size: cover!important; 
+                            background-repeat: no-repeat; 
+                            background-position: 50%; ">
+                            <h6 class="card-title m-0 pt-4 pb-4 text-white text-center font-weight-bold">빵 시리즈</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-5 mb-3">
+                    <h3>인기 상품</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/82151802_380644346231441_2911413192394315391_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=105&amp;_nc_ohc=SooNn96zx_4AX8ufBId&amp;oh=651d91048802eacf244212d6ad688103&amp;oe=5EF3D812" class="card-img-top rounded-0" alt="...">
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">지글리</p>
+                                <p class="m-0 product_title">뇨끼 없는 크림 뇨끼</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/92460118_527995621471496_4492953603935992981_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=108&amp;_nc_ohc=f9MqrhZtd-oAX8dc9Sr&amp;oh=3e456cdedf633daa236db75914be6c0e&amp;oe=5EF43505" class="card-img-top rounded-0" alt="...">
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">자바칩</p>
+                                <p class="m-0 product_title">파밍건 (쁠루모+엘머스+한국풀+점토 소량, 땅콩버터초코쿠키 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">17%</span><span>11,500</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.7</span><span class="text-muted">리뷰124</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0" alt="...">
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">라이스볼</p>
+                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col justify-content-center">
+                    <a href="#">
+                        <div class="card border-0 justify-content-center m-0">
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/75328514_2180751002218727_7929013519028427325_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=eXzYzULJaPkAX8JKzRh&amp;oh=fccbdbf900da327569f7a1fc52503d99&amp;oe=5EF3B2EB" class="card-img-top rounded-0" alt="...">
+                            <div class="card-body p-0 pt-1">
+                                <p class="m-0 product_kind">빈백</p>
+                                <p class="m-0 product_title">호박박볼 (아마존+엘머스+점토소량, 자몽허니블랙티 향)</p>
+                                <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
+                                <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
+                                <p class="m-0 mt-1">
+                                    <span class="badge badge-sale">세일</span>
+                                    <span class="badge badge-free">무료배송</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="container mt-5 mb-5">
+            <div class="row mt-5 justify-content-center">
+                <a href="https://www.instagram.com/alpha.k.a/?hl=ko"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <div class="row justify-content-center mt-1 mb-3">
+                <p>- 인스타그램 -</p>
+            </div>
+            <div class="row">
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B4aE0ziHWrO/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">뇨끼 농도 알아보기
+
+                                2분 14초 부터의 농도가 개인적으로 가장 선호하는 농도입니다!</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c0.236.607.607a/76909695_796133337483673_5948463922800007909_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=S7b4yiFOV7IAX-7EdWd&amp;oh=8ad506b2fa17442483524b7138f0a952&amp;oe=5EF3C020" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B3zUfJsn_Be/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">#과일로만든두부 #과만두
+                                지난 차수 일정금액 이상 서비스로 증정된 쁠루모,
+                                엘머스, 아마존, 한국풀 믹스 베이스의 버터지글리</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/72763599_720164751728487_4814517726537811256_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=103&amp;_nc_ohc=9-7tWfmgs2AAX8HvuGv&amp;oh=ac1ded0a5aca728e90d2bb93d49f69f7&amp;oe=5EF4036A" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B28zMKankud/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">베리빵이 빵 시리즈 중에서는 비교적 가장 유연하긴
+                                하지만 이름이 빵인만큼 도톰한 맛이 있는 질감입니다!!</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/71703274_2501714400064953_3166075310083890499_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=109&amp;_nc_ohc=c2p5MhjStS8AX_uC_Fl&amp;oh=b27c4e410d2a195813b372cfc5420504&amp;oe=5EF3BF30" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B24fV_KnqY8/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">그때 그 시절의..
+                                #호두빵 친구
+                                #베리빵 친구
+                                #메론빵 입니다!</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/69713125_132543181425694_650969264346309910_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=EQFr2RPxfcoAX9EDqpd&amp;oh=7b5fc59315959242658c267ca6cf3e03&amp;oe=5EF41F70" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B24ZZ7pH79c/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">#초코코볼 키위 파츠 관련 공지입니다!
+                                거래처 품절로 인해 지난 오프라인 재입고건</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/c0.136.1440.1440a/s640x640/70031006_184311155946538_3103351922293640455_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=8SDF2rAs_s0AX_Dd8Qh&amp;oh=a8938b973d192c9bb17414f4a6983dda&amp;oe=5F1BDFC8" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B1trOXLHhgC/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">이렇게 삐걱댈 줄 알았으면 (알았음)
+                                하던대로 비닐장갑이나 낄 것을 ..
+                                바스락 소리보다 나은게 없네요</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/67507011_122254705782325_2253574854465937483_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=vMEIqdR8DwQAX-JzEco&amp;oh=dae808633a8ff27f786c25f836295a10&amp;oe=5EF3A632" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B0oYf35n7oj/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">이번 온라인 마켓 서비스로 증정된 #쨈인더킨더 영상입니다!
+                                #킨더초콜릿 모양으로 잘린 자바칩과
+                                초콜릿 안에 든 쨈(?)을 표현한 베이스예요!!</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/67084520_147761443000274_7608146841221229398_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=102&amp;_nc_ohc=4FUdltGfsUMAX9Ni-8H&amp;oh=f38a7c409842e6c916a27d0b9837e4ec&amp;oe=5EF3CD4B" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/BzpFVt9HHok/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3"> @oui.slime #위슬라임 #위만슬
+                                위복가도랑 같이 받은건데 이제야...
+                                드디어 마음잡고 편집해서 올립니다 ~
+                                왜인지 화가난 손과 화가난 플레잉..</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/65301885_102056704391505_5072954060392414502_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=109&amp;_nc_ohc=lvxgGkJ_Jr4AX_EtJ9v&amp;oh=84eed309c51c65521295619219dc2ff3&amp;oe=5EF3FC05" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/Bzc_eNSHdiw/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">엘머스 클리어 진짜 좋네요!!!!!!
+                                통 안에 들어있을 땐 누런데 꺼내면
+                                투명색 돼요 !!!! </h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/62253728_332493104318951_6329791158537879915_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=111&amp;_nc_ohc=Avgpp0yIpzUAX9Nm53t&amp;oh=db3d761b325445cf4748352661837e3d&amp;oe=5EF42FFA" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/BzYAcgNHoHg/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">오프라인 입고 관련 공지입니다!
+                                안녕하세요 알파카 슬라임입니다.
+                                7월 2일 화요일 오후 3시,
+                                서울 #실수투성이밤</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/64642228_596482767544546_3909227696692870984_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=knCmZhhVniwAX_4RV6p&amp;oh=c931683607f2985f6e2330edee6dba6e&amp;oe=5EF3CCDB" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/Byfhv6lH3qC/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3"> #위슬라임 #위보카도 @oui.slime
+                                썸네일 거의 픽미 픽미 픽미업 ♪ 이네요.. (흥얼)</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/61671640_203169463982662_650769252760419540_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=_exqz_N-T-sAX88H7qn&amp;oh=a608a4268ae5c4af70b04ee6983653b6&amp;oe=5EF3DB11" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/BxFNfkNHZTS/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">핵 건조 퍼슥 퍼슥한 사막 손으로
+                                핸드크림도 안바르고 당당하게 영상찍기 챌린지!</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/58737536_2021824141249964_8211289798296836304_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=108&amp;_nc_ohc=HqSfUy0wgEkAX9sGtZC&amp;oh=49242009363a36ad207640ef476d85df&amp;oe=5EF3A19F" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/Bw7ifXCFQJS/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">#통망고조림 영상 편집 정신없어요!!!
+                                매일 쪼금(최소 5분)씩은 꼭 블로(구 비모)에 들어가</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/58410169_136235434209948_3521156864815113249_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=100&amp;_nc_ohc=U-BDA8-AHp0AX_BgD4I&amp;oh=69d2e2624c14c3ad04e1a2cdc533202c&amp;oe=5EF416FE" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/BvXSsKzD5VO/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">#꼬순내 #우유향
+                                ㅤ
+                                너무 귀여운 발바닥 토핑 ... ᵀᴗᵀ❕ ㅤ
+                                이거 스토리에도 한번 올렸었는데 조합</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e15/s640x640/54230408_406902973461172_1309669996288623250_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=104&amp;_nc_ohc=twkfu2m-DeQAX-0f6xB&amp;oh=9ce49a692ee7b104b3410cf718a80b5a&amp;oe=5EF3A058" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/CBsZQqknQJY/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">신메뉴 3/3 ! #사각키위 
+                                사각 모양의 에바폼 + 사각사각한ㅎㅎ 키위라는</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/104474056_581141909254937_7282339996681592598_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=105&amp;_nc_ohc=oy0DNyRjoJkAX8nzAb9&amp;oh=077a663c4c5119583d1429e19c94bd57&amp;oe=5EF3CC5A" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/CApCffIHvxf/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">서비스 슬라임 A. #초여름무지개
+                                이번 차수 온라인마켓 서비스로 증정된 초여름무지개(ㅎㅎ</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/100958682_2548163798783002_6113105751157463434_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=ka3ThHjb3FwAX8l8Xn7&amp;oh=427f184293c0e26922cd594ade694eec&amp;oe=5EF3E324" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/CACs1FmH-SP/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">#알차테린느_질감영상
+                                드디어 #알차테린느 의 리뉴얼이 완료되었습니다!!
+                                (찐막_찐찐막.xxx ...)</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/96423093_114243986719945_2435078800553036114_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=Qmg4IUrD2VMAX8h3yjw&amp;oh=9faeee2d5f6da5b62a437eb2b72f900f&amp;oe=5EF455E0" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+                <div class="col p-1">
+                    <a href="https://www.instagram.com/p/B9vVpe8HNOf/">
+                        <div class="img-wrap text-center d-flex align-items-center text-wrap">
+                            <h6 class="img-text rounded text-white p-3">온라인 마켓 서비스 슬라임 C.#럭키파우치
+                                (인데 이걸 왜 이제야.. 올리냐 욕하셔도
+                                할말이 없읍니다.. -명불허전 느림보-)</h6>
+                            <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/89814983_199758721303726_2865655294604801028_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=UQm3a7Q2m5EAX9BXF13&amp;oh=b8e67d5f3fa156e777f6c8e8794c588c&amp;oe=5EF3C9AD" class="rounded img w-100" alt="...">
+                        </div>
+                    </a>
+                </div>
+           
+                
+                
+
+            </div>
+        </div>
+    </div>
+    <div class="row border-top mt-5 mb-5">
+        <div class="container">
+            <div class="row mb-5 d-flex justify-content-around">
+                <div class="col-3 mt-5 footer">
+                    <h3>슬라임</h3>
+                    <p class="m-1">상호명 : 슬라임</p>
+                    <p class="m-1">사업자 등록 번호 : 135-23-46731</p>
+                    <p class="m-1">서울시 강남구 테헤란로83길 18, 매직킹덤빌딩 10층</p>
+                    <p class="m-1">통신판매업 제2015-서울강남-03630호</p>
+                </div>
+                <div class="col-2 mt-5 footer">
+                    <h3>무통장입금</h3>
+                    <p class="m-1">기업은행</p>
+                    <p class="m-1">137-536368-24-267</p>
+                    <p class="m-1">(주)알파카슬라임</p>
+                </div>
+                <div class="col-3 mt-5 footer" >
+                    <h3>고객센터</h3>
+                    <p class="m-1">010-3253-1221</p>
+                    <p class="m-1">카카오톡 : alpacaslime</p>
+                    <p class="m-1">월요일 - 금요일 AM 10:00 - 20:00</p>
+                    <p class="m-1">이메일 문의 : alpacaslime@naver.com</p>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <a href="https://www.instagram.com/alpha.k.a/?hl=ko"><i class="fab fa-instagram "></i></a>
+            </div>
+            <div class="row justify-content-center footer mt-2 mb-0">                
+                <p>Copyright 2020. 슬라임 All rights reserved</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
