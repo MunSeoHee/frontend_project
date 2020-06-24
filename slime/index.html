@@ -10,103 +10,20 @@
     <script src="https://kit.fontawesome.com/440c2abcaa.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <title>슬라임</title>
-    <style>
-        a{ color:black; text-decoration: none;}
-        a:link { color:black; text-decoration: none;}
-        a:visited { color:black; text-decoration: none;}
-        a:hover { color:black; text-decoration: none;}
-        .product_title{
-            
-        }
-        h3{
-            font-weight: bolder;
-            font-size:large;
-        }
-        .product_kind{
-            font-size: small;
-            color:rgb(116,116,116);
-        }
-        .product_price{
-            font-weight: bold;
-        }
-        .product_sale{
-            color:rgb(251,0,25)
-        }
-        .product_grade{
-            font-size: small;
-            font-weight: bold;
-        }
-        .fa-star{
-            color:rgb(251,0,25)
-        }
-        .badge-free{
-            background-color: rgb(237,237,237);
-            color:rgb(116,116,116);
-        }
-        .badge-sale{
-            background-color: rgb(255,119,119);
-            color:white;
-        }
-
-        .jb-wrap img {
-            width: 100%;
-            vertical-align: middle;
-        }
-        .jb-text {
-            padding: 5px 10px;
-            background-color: rgb(255,119,119);
-            text-align: center;
-            position: absolute;
-            top: 5%;
-            left: 17%;
-            transform: translate( -50%, -50% );
-        }
-       
-        .img-wrap img {
-            width: 100%;
-            vertical-align: middle;
-        }
-        .img-text {
-            background-color: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            position: absolute;
-            width: 95%;
-            height: 95%;
-            padding: 0;
-            display: none;
-        }
-        .footer{
-            font-size: small;
-           
-        }
-        .jbFixed{
-            position:fixed;
-            top:0;
-            width: 100%;
-            background-color: white;
-        }
-        .tab-detail-wrap{
-    
-            display: block;
-            z-index: 3;
-            
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         $(function(){
             $('.img-wrap > img').mouseover(function(){
-                $('this').prev().css('display','block');
-            })
+                $(this).prev().css('display','block');
+            });
             $('.img-wrap > img').mouseout(function(){
                 $(this).prev().css('display','none');
-            })
-        })
-        $(function(){
+            });
             $('.close').click(function(){
                 $('.ad').css('display','none');
-            })
-            
+            });
         })
+        
         
     </script>
     <script>
@@ -134,13 +51,13 @@
         <div class="row justify-content-end">
             <ul class="nav footer">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">로그인</a>
+                  <a class="nav-link active" href="login.html">로그인</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">회원가입</a>
+                  <a class="nav-link" href="signin.html">회원가입</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">장바구니</a>
+                  <a class="nav-link" href="basket.html">장바구니</a>
                 </li>
               </ul>
         </div>
@@ -201,12 +118,12 @@
                     <a href="#">
                         <div class="card border-0 justify-content-center m-0">
                             <div class="jb-wrap">
-                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/94498108_2873408729416356_2062721041957087690_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=100&amp;_nc_ohc=I26orgTdmbkAX_zKEmd&amp;oh=2b7fab3a4d28ea51996d7f73006da366&amp;oe=5EF5697B" class="card-img-top rounded-0 jb-image" alt="...">
                                 <span class="badge badge-primary jb-text">6일 남음</span>
                             </div>
                             <div class="card-body p-0 pt-1">
-                                <p class="m-0 product_kind">라이스볼</p>
-                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_kind">빈백폼</p>
+                                <p class="m-0 product_title">와일드베리후르츠링볼 (한국풀+택키글루, 자스민 라벤더 믹스향)</p>
                                 <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
                                 <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
                                 <p class="m-0 mt-1">
@@ -221,12 +138,12 @@
                     <a href="#">
                         <div class="card border-0 justify-content-center m-0">
                             <div class="jb-wrap">
-                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/84268249_1548930585274083_1705669441014897141_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=103&amp;_nc_ohc=OkxjUJ0oIYEAX-EXBac&amp;oh=43ace3c77fc665497adbdc41ba50745e&amp;oe=5EF5AC4B" class="card-img-top rounded-0 jb-image" alt="...">
                                 <span class="badge badge-primary jb-text">6일 남음</span>
                             </div>
                             <div class="card-body p-0 pt-1">
-                                <p class="m-0 product_kind">라이스볼</p>
-                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_kind">촉감류</p>
+                                <p class="m-0 product_title">감초무스 (엘머스+한국풀+점토+스펀지, 감자 초코 믹스향)</p>
                                 <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
                                 <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
                                 <p class="m-0 mt-1">
@@ -241,12 +158,12 @@
                     <a href="#">
                         <div class="card border-0 justify-content-center m-0">
                             <div class="jb-wrap">
-                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/80654778_757265204763985_8183462000148096365_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=101&amp;_nc_ohc=YRVDgoGn5lwAX8P24O-&amp;oh=2b9fd892ca249de2ab24bf0aae6b3f12&amp;oe=5EF4367B" class="card-img-top rounded-0 jb-image" alt="...">
+                                <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/c157.0.405.405a/83107271_1091392484543962_2892208100797608592_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&amp;_nc_cat=110&amp;_nc_ohc=YqBa5TR9gBsAX_IoJ0n&amp;oh=3a7b1019fd3d5face84cf640c8e629ed&amp;oe=5EF55AFC" class="card-img-top rounded-0 jb-image" alt="...">
                                 <span class="badge badge-primary jb-text">6일 남음</span>
                             </div>
                             <div class="card-body p-0 pt-1">
-                                <p class="m-0 product_kind">라이스볼</p>
-                                <p class="m-0 product_title">오레오라이스크리스피 (아마존+스쿨, 초코바나나 향)</p>
+                                <p class="m-0 product_kind">촉감류</p>
+                                <p class="m-0 product_title">밤구마라떼 (아마존+우드글루, 고구마케이크+우유+말랑카우향)</p>
                                 <p class="m-0 product_price"><span class="product_sale mr-2">10%</span><span>9,000</span></p>
                                 <p class="m-0 product_grade"><i class="fas fa-star"></i><span class="mr-1">4.8</span><span class="text-muted">리뷰150</span></p>
                                 <p class="m-0 mt-1">
